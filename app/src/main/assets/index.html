@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script>
+
+        function openScanner() {
+            //call the {scan()} method in the {JavaScriptInterface} class in the java code
+            window.JSInterface.scan();
+        }
+
+        //this function is called from the Java code
+        //like this-> webView.loadUrl("javascript:scannerResult('" + value + "')");
+        //to pass the QR scanner result to the javascript
+
+        function scannerResult(result) {
+            document.getElementById("result").innerText = result;
+        }
+
+    </script>
+    <style>
+        h3 {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h3>Scanner Result :</h3>
+        <label id="result"></label>
+        <br>
+        <button id="scan" onclick="openScanner()">Scan Qr Code</button>
+    </center>
+</body>
+
+</html>
